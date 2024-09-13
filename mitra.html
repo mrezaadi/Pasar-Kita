@@ -34,5 +34,14 @@
     <footer>
       <p>Pasar Kita © 2024</p>
     </footer>
+    <script>
+      // Script for mobile menu toggle
+      const navToggle = document.querySelector(".nav-toggle");
+      const navLinks = document.querySelector(".nav-links");
+
+      navToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("nav-open");
+      });
+    </script>
   </body>
 </html>
