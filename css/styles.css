@@ -1,7 +1,12 @@
-body {
-  font-family: "Poppins", sans-serif;
+/* Global Styles */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
   background-color: #f4f6f7;
   color: #387f39;
 }
@@ -24,7 +29,7 @@ nav .logo {
 }
 
 nav .logo img {
-  height: 60px; /* Membuat logo lebih besar */
+  height: 60px;
   margin-right: 10px;
 }
 
@@ -33,7 +38,6 @@ nav ul {
   display: flex;
   gap: 20px;
   margin: 0;
-  padding: 0;
 }
 
 nav ul li {
@@ -45,13 +49,17 @@ nav ul li a {
   color: #387f39;
 }
 
+nav ul li a.active {
+  font-weight: bold;
+}
+
 nav ul li a:hover {
   text-decoration: underline;
 }
 
 .masuk-button {
   background-color: #387f39;
-  color: #ffffff;
+  color: white;
   padding: 5px 15px;
   border-radius: 5px;
   text-decoration: none;
@@ -91,18 +99,19 @@ main {
 }
 
 .intro-image img {
-  width: 300px; /* Membuat gambar pasar lebih besar */
+  width: 300px;
   border-radius: 10px;
 }
 
 .visi-misi {
   display: flex;
   justify-content: space-between;
+  gap: 20px;
 }
 
 .visi,
 .misi {
-  background-color: #ffffff;
+  background-color: #fff;
   padding: 20px;
   border-radius: 10px;
   width: 48%;
@@ -129,153 +138,70 @@ footer {
   color: #ffffff;
   text-align: center;
   padding: 10px 0;
+  margin-top: 20px;
 }
 
-/* Global Styles */
-body {
-  font-family: "Poppins", sans-serif;
+footer p {
   margin: 0;
-  padding: 0;
-  background-color: #f4f6f7; /* Warna background default */
-  color: #387f39;
 }
 
-header {
-  background-color: #bedc74;
-  padding: 10px 0;
-}
+/* Mobile Styles */
+@media (max-width: 768px) {
+  /* Navigation */
+  nav ul {
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    background-color: #bedc74;
+    width: 100%;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    z-index: 1000;
+  }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-}
+  .nav-toggle {
+    font-size: 24px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #387f39;
+  }
 
-nav .logo {
-  display: flex;
-  align-items: center;
-}
+  nav ul.nav-open {
+    display: flex;
+  }
 
-nav .logo img {
-  height: 60px; /* Membuat logo lebih besar */
-  margin-right: 10px;
-}
+  /* Intro Section */
+  .intro {
+    flex-direction: column;
+    text-align: center;
+  }
 
-nav .logo h1 {
-  font-size: 24px;
-  margin: 0;
-  color: #387f39;
-}
+  .intro-text {
+    max-width: 100%;
+  }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-  margin: 0;
-  padding: 0;
-}
+  .intro-image {
+    margin-top: 20px;
+  }
 
-nav ul li {
-  padding: 5px 10px;
-}
+  /* Visi-Misi Section */
+  .visi-misi {
+    flex-direction: column;
+    gap: 20px;
+  }
 
-nav ul li a {
-  text-decoration: none;
-  color: #387f39;
-}
-
-nav ul li a.active {
-  font-weight: bold;
-}
-
-nav ul li a:hover {
-  text-decoration: underline;
-}
-
-.masuk-button {
-  background-color: #387f39;
-  color: #ffffff;
-  padding: 5px 15px;
-  border-radius: 5px;
-  text-decoration: none;
-}
-
-.masuk-button:hover {
-  background-color: #2e4424;
-}
-
-/* Home Page (index.html) Styles */
-.main-content {
-  padding: 20px;
-  text-align: center;
-}
-
-.main-content h2 {
-  font-size: 28px;
-  color: #387f39;
-  margin-bottom: 20px;
-}
-
-.main-content p {
-  font-size: 18px;
-  margin-bottom: 40px;
-  color: #387f39;
-}
-
-.main-content .mission-vision {
-  display: flex;
-  justify-content: space-around;
-  padding: 20px;
-}
-
-.main-content .mission-vision .vision,
-.main-content .mission-vision .mission {
-  background-color: #f6e96b;
-  padding: 20px;
-  border-radius: 10px;
-  width: 45%;
-  text-align: left;
-}
-
-.main-content .mission-vision h3 {
-  font-size: 22px;
-  color: #387f39;
-  margin-bottom: 10px;
-}
-
-.main-content .mission-vision p {
-  font-size: 16px;
-  color: #387f39;
-}
-
-/* Search Bar (for cek-harga.html) */
-.search-bar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 20px 0;
-}
-
-.search-bar input {
-  padding: 10px;
-  width: 50%;
-  border-radius: 20px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-  outline: none;
-}
-
-.search-bar .filter-icon,
-.search-bar .search-icon {
-  margin: 0 10px;
-  cursor: pointer;
+  .visi,
+  .misi {
+    width: 100%;
+  }
 }
 
 /* Product Grid (for cek-harga.html) */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
   padding: 0 20px;
 }
@@ -305,37 +231,15 @@ nav ul li a:hover {
   margin: 5px 0;
 }
 
-/* Footer */
-footer {
-  background-color: #387f39;
-  color: #ffffff;
-  text-align: center;
-  padding: 10px 0;
-  margin-top: 20px;
-}
-
-footer p {
-  margin: 0;
-}
-
 /* Form Styles */
 form {
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
   text-align: left;
-  background-color: #f6e96b; /* Sesuaikan dengan warna background */
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sedikit bayangan */
-}
-
-/* Centering the content */
-.main-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80vh; /* Full height to center vertically */
-  padding: 20px;
+  background-color: #f6e96b;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 label {
@@ -353,7 +257,6 @@ input[type="text"] {
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  box-sizing: border-box;
 }
 
 button.submit-button {
@@ -370,14 +273,7 @@ button.submit-button:hover {
   background-color: #2e4424;
 }
 
-/* Title of the form */
-.main-content h2 {
-  font-size: 28px;
-  margin-bottom: 20px;
-  text-align: center;
-  color: #387f39;
-}
-
+/* Table Styles */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -400,4 +296,49 @@ th {
 
 tr:nth-child(even) {
   background-color: #f2f2f2;
+}
+
+/* Responsive Tables */
+@media (max-width: 768px) {
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  tr {
+    margin-bottom: 15px;
+  }
+
+  td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+
+  td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 15px;
+    text-align: left;
+    font-weight: bold;
+  }
+}
+
+/* Footer */
+footer {
+  background-color: #387f39;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 20px;
+}
+
+footer p {
+  margin: 0;
 }
